@@ -7,31 +7,33 @@
   <meta name="description" content="K'Nova — Ateliers STEM pratiques, ludiques et interactifs pour les jeunes de 5 à 18 ans au Burkina Faso." />
 
   <style>
-    :root{
-      --bg:#0b1020;
-      --panel:#111a33;
-      --card:#0f1730;
-      --text:#e9ecf5;
-      --muted:#b9c2dd;
-      --brand:#ff9800;
-      --brand2:#7c3aed;
-      --line:rgba(255,255,255,.12);
-      --shadow: 0 14px 35px rgba(0,0,0,.35);
-      --radius:18px;
-      --max:1100px;
-    }
+   :root{
+  --bg:#0f0b1f;
+  --panel:#1a1333;
+  --card:#1c1438;
+  --text:#f2ecff;
+  --muted:#cbbcff;
+
+  --brand:#a855f7;
+  --brand2:#7c3aed;
+  --line:rgba(168,85,247,.25);
+
+  --shadow: 0 14px 35px rgba(124,58,237,.35);
+  --radius:18px;
+  --max:1100px;
+}
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 20% -10%, rgba(124,58,237,.35), transparent 60%),
-        radial-gradient(900px 500px at 90% 10%, rgba(255,152,0,.22), transparent 55%),
-        var(--bg);
-    }
+   body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1000px 600px at 20% -10%, rgba(168,85,247,.35), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(124,58,237,.25), transparent 55%),
+    #0f0b1f;
+}
 
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
@@ -43,8 +45,14 @@
       gap:10px;
     }
     .btn:hover{transform: translateY(-1px)}
-    .btn.primary{background:var(--brand); color:#111}
-    .btn.primary:hover{opacity:.92}
+    .btn.primary{
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  color: white;
+
+   .btn.primary:hover{
+  opacity:.92;
+  filter: brightness(1.05);
+}
     .btn.ghost{background:transparent; border-color:var(--line); color:var(--text)}
     .btn.ghost:hover{border-color:rgba(255,255,255,.25)}
     .pill{
@@ -54,12 +62,18 @@
     }
 
     /* NAV */
-    .nav{
-      position:sticky; top:0; z-index:50;
-      background:rgba(11,16,32,.72);
-      backdrop-filter: blur(12px);
-      border-bottom:1px solid var(--line);
-    }
+   .nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background: linear-gradient(
+    to right,
+    rgba(15,11,31,.85),
+    rgba(28,20,56,.85)
+  );
+  backdrop-filter: blur(14px);
+  border-bottom:1px solid var(--line);
+}
     .nav-inner{
       display:flex; align-items:center; justify-content:space-between;
       padding:12px 0;
