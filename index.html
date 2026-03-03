@@ -223,6 +223,33 @@
       .menu a{padding:8px 8px}
       .stat{grid-column: span 12}
     }
+      /* FIX NAV + LINKS (à mettre tout en bas du <style>) */
+.menu a, .brand{
+  text-decoration: none !important;
+}
+
+.menu{
+  display:flex !important;
+  align-items:center !important;
+  gap:14px !important;
+  flex-wrap:wrap !important;
+  justify-content:flex-end !important;
+}
+
+.menu a{
+  color: var(--muted) !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  padding: 9px 10px !important;
+  border-radius: 10px !important;
+  border: 1px solid transparent !important;
+}
+
+.menu a:hover{
+  color: var(--text) !important;
+  border-color: var(--line) !important;
+  background: rgba(255,255,255,.08) !important;
+}
   </style>
 </head>
 
