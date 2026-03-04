@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>K'Nova — Vacances de Génie</title>
 
 <style>
@@ -13,211 +13,217 @@
   --text:#1b1033;
   --muted:#5b4a85;
 
-  --brand:#7c3aed;
-  --brand2:#a855f7;
+  --brand:#5b21b6;   /* violet brochure */
+  --brand2:#7c3aed;  /* violet clair */
+  --accent:#f59e0b;  /* orange */
 
-  --line:rgba(124,58,237,.25);
-  --shadow:0 15px 35px rgba(124,58,237,.15);
+  --line:rgba(91,33,182,.22);
+  --shadow:0 16px 40px rgba(91,33,182,.14);
   --radius:18px;
-  --max:1100px;
+  --max:1120px;
 }
 
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color:var(--text);
   background:
-    radial-gradient(900px 520px at 15% -10%, rgba(168,85,247,.20), transparent 60%),
-    radial-gradient(900px 520px at 90% 10%, rgba(124,58,237,.15), transparent 60%),
+    radial-gradient(900px 520px at 15% -10%, rgba(124,58,237,.18), transparent 60%),
+    radial-gradient(900px 520px at 90% 10%, rgba(245,158,11,.10), transparent 60%),
     var(--bg);
 }
 
-.wrap{
-  max-width:var(--max);
-  margin:0 auto;
-  padding:0 20px;
-}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
 
 /* NAV */
 .nav{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(255,255,255,.85);
-  backdrop-filter:blur(12px);
+  position:sticky; top:0; z-index:50;
+  background:rgba(255,255,255,.88);
+  backdrop-filter: blur(12px);
   border-bottom:1px solid var(--line);
 }
-
 .nav-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 0;
-  gap:14px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 0; gap:14px;
 }
-
 .brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:900;
-  text-decoration:none;
-  color:var(--text);
+  display:flex; align-items:center; gap:10px;
+  font-weight:900; text-decoration:none; color:var(--text);
 }
-
 .logo{
-  width:40px;
-  height:40px;
-  object-fit:contain;
-  border-radius:10px;
+  width:42px; height:42px; object-fit:contain; border-radius:12px;
+}
+.menu{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+.menu button{
+  appearance:none; border:1px solid transparent; background:transparent;
+  color:var(--muted); font-weight:800;
+  padding:9px 12px; border-radius:12px; cursor:pointer;
+  transition:.2s;
+}
+.menu button:hover{
+  background:rgba(124,58,237,.10);
+  color:var(--brand2);
+  border-color:var(--line);
 }
 
-.menu{
-  display:flex;
-  gap:16px;
-  flex-wrap:wrap;
+/* LAYOUT PAGES */
+main{padding:26px 0 10px}
+.page{
+  display:none;
+  padding:26px 0;
 }
+.page.active{display:block}
 
-.menu a{
-  text-decoration:none;
-  font-weight:700;
-  color:var(--muted);
-  padding:8px 12px;
-  border-radius:10px;
-  transition:0.2s;
+.hero{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:20px;
+  align-items:center;
 }
-
-.menu a:hover{
-  background:rgba(124,58,237,.1);
-  color:var(--brand);
-}
-
-/* HERO */
-header{
-  padding:70px 0 35px;
-}
-
-h1{
-  font-size:42px;
-  margin:10px 0;
-  line-height:1.1;
-}
-
-.lead{
-  font-size:18px;
-  color:var(--muted);
-  max-width:680px;
-  line-height:1.6;
-}
-
-/* BUTTONS */
-.btn{
-  display:inline-block;
-  padding:14px 22px;
-  border-radius:14px;
-  font-weight:800;
-  text-decoration:none;
-  margin-top:18px;
-  transition:0.2s;
-}
-
-.btn.primary{
-  background:linear-gradient(135deg,var(--brand2),var(--brand));
-  color:white;
-  box-shadow:0 10px 25px rgba(124,58,237,.25);
-}
-
-.btn.primary:hover{
-  transform:translateY(-2px);
-  filter:brightness(1.05);
-}
-
-.btn.ghost{
-  border:1px solid var(--line);
-  color:var(--brand);
-  background:transparent;
-}
-
-.btn.ghost:hover{
-  background:rgba(124,58,237,.08);
-}
-
-/* SECTIONS */
-section{
-  padding:55px 0;
-}
-
-.section-title{
-  font-size:28px;
-  margin:0 0 15px;
+@media (max-width: 900px){
+  .hero{grid-template-columns: 1fr}
 }
 
 .card{
   background:var(--card);
   border-radius:var(--radius);
-  padding:25px;
   box-shadow:var(--shadow);
-  margin-top:18px;
-  line-height:1.6;
+  border:1px solid rgba(91,33,182,.08);
 }
 
-/* STATS */
-.stats{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:18px;
-  margin-top:22px;
+.pad{padding:26px}
+
+h1{margin:0 0 10px; font-size:42px; line-height:1.08}
+h2{margin:0 0 14px; font-size:30px}
+h3{margin:0 0 10px; font-size:18px}
+
+.lead{color:var(--muted); line-height:1.65; font-size:17px}
+
+.badge{
+  display:inline-flex; align-items:center; gap:8px;
+  font-weight:900; color:var(--brand);
+  background:rgba(91,33,182,.08);
+  border:1px solid var(--line);
+  padding:8px 12px;
+  border-radius:999px;
+  margin-bottom:14px;
 }
 
-.stat{
-  background:white;
-  padding:20px;
-  border-radius:16px;
-  box-shadow:var(--shadow);
-  text-align:center;
+/* BUTTONS */
+.actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:10px;
+  padding:12px 16px;
+  border-radius:14px;
+  font-weight:900;
+  text-decoration:none;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:.2s;
+  background:#fff;
 }
-
-.stat h3{
-  margin:0;
-  font-size:26px;
+.btn.primary{
+  color:#fff;
+  background: linear-gradient(135deg, var(--brand2), var(--brand));
+  box-shadow: 0 12px 26px rgba(91,33,182,.22);
+}
+.btn.primary:hover{transform:translateY(-1px); filter:brightness(1.05)}
+.btn.ghost{
+  background:transparent;
+  border-color:var(--line);
   color:var(--brand);
 }
+.btn.ghost:hover{background:rgba(91,33,182,.06)}
+.btn.back{border-color:rgba(91,33,182,.12); color:var(--muted)}
+.btn.back:hover{background:rgba(0,0,0,.04)}
 
-/* GALLERY */
-.gallery{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap:16px;
-  margin-top:20px;
-}
-
-.gallery img{
+/* IMAGE BLOCKS */
+.photo{
   width:100%;
-  height:230px;
+  aspect-ratio: 4/3;
   object-fit:cover;
+  border-radius: var(--radius);
+  display:block;
+  border:1px solid rgba(91,33,182,.10);
+}
+
+/* GRID CONTENT */
+.grid2{display:grid; grid-template-columns: 1fr 1fr; gap:16px}
+@media (max-width: 900px){.grid2{grid-template-columns:1fr}}
+
+.list{
+  display:grid;
+  gap:12px;
+}
+.item{
+  padding:14px;
+  border-radius:16px;
+  border:1px solid rgba(91,33,182,.10);
+  background:rgba(255,255,255,.70);
+}
+
+.stats{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.stat{
+  padding:14px; border-radius:16px;
+  background:rgba(91,33,182,.06);
+  border:1px solid var(--line);
+}
+.stat b{display:block; font-size:22px; color:var(--brand)}
+
+/* TEAM */
+.team{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap:14px;
+}
+.person{
+  padding:14px;
   border-radius:18px;
-  box-shadow: var(--shadow);
-  transition:0.25s;
+  border:1px solid rgba(91,33,182,.10);
+  background:rgba(255,255,255,.75);
+  display:flex;
+  gap:12px;
+  align-items:center;
 }
-
-.gallery img:hover{
-  transform:scale(1.02);
+.avatar{
+  width:58px; height:58px; border-radius:16px;
+  object-fit:cover;
+  border:2px solid rgba(245,158,11,.45);
 }
+.role{color:var(--muted); font-weight:700; font-size:13px}
 
-/* FOOTER */
+/* FOOTER CONTACT */
 footer{
-  padding:50px 0;
+  margin-top:24px;
   border-top:1px solid var(--line);
-  text-align:center;
-  color:var(--muted);
-  line-height:1.8;
+  background:rgba(255,255,255,.75);
+  backdrop-filter: blur(10px);
 }
-
-@media (max-width: 520px){
-  h1{font-size:34px}
+.footer-inner{padding:20px 0; display:grid; gap:10px}
+.contact-row{
+  display:flex; flex-wrap:wrap; gap:10px;
+  align-items:center;
+  color:var(--text);
 }
+.pill{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(91,33,182,.15);
+  background:#fff;
+  font-weight:900;
+}
+.small{color:var(--muted); font-size:13px}
+a{color:inherit}
 </style>
 </head>
 
@@ -226,106 +232,275 @@ footer{
 <!-- NAV -->
 <div class="nav">
   <div class="wrap nav-inner">
-    <a href="#accueil" class="brand">
-      <img src="Fichier 1.png" alt="Logo K'Nova" class="logo">
+    <a class="brand" href="#" onclick="go('inscription'); return false;">
+      <!-- Mets ton logo ici (tu peux garder Fichier 1.png si tu veux) -->
+      <img class="logo" src="Fichier 1.png" alt="Logo K'Nova">
       <span>K'Nova</span>
     </a>
 
     <div class="menu">
-      <a href="#accueil">Accueil</a>
-      <a href="#programme">Programme</a>
-      <a href="#galerie">Galerie</a>
-      <a href="#inscription">Inscription</a>
-      <a href="#contact">Contact</a>
+      <button onclick="go('inscription')">Inscription</button>
+      <button onclick="go('kova')">Qu’est-ce que K’Nova ?</button>
+      <button onclick="go('proposons')">Ce que nous proposons</button>
+      <button onclick="go('programme')">Programme</button>
+      <button onclick="go('equipe')">Notre équipe</button>
+      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>
     </div>
   </div>
 </div>
 
-<!-- HERO -->
-<header id="accueil" class="wrap">
-  <p style="color:var(--brand);font-weight:800;margin:0;">Burkina Faso • 5 à 18 ans</p>
-  <h1>Vacances de Génie — Là où nos idées prennent vie</h1>
+<main class="wrap">
 
-  <p class="lead">
-    K’Nova est une initiative éducative innovante qui rend les sciences accessibles, passionnantes et utiles
-    grâce à des ateliers pratiques, ludiques et interactifs.
-  </p>
+  <!-- 0) INSCRIPTION -->
+  <section id="page-inscription" class="page active">
+    <div class="hero">
+      <div class="card pad">
+        <div class="badge">Vacances de Génie — STEM (5 à 18 ans)</div>
+        <h1>Là où nos idées prennent vie</h1>
+        <p class="lead">
+          Inscriptions officielles : <b>1er juin</b>. (Tarifs et détails publiés à l’ouverture.)
+        </p>
 
-  <a href="#inscription" class="btn primary">S’inscrire / Être informé</a>
-  <a href="#programme" class="btn ghost" style="margin-left:10px;">Découvrir le programme</a>
-</header>
+        <div class="item" style="margin-top:14px;">
+          <h3>Ouverture dans :</h3>
+          <div id="countdown" style="font-size:22px; font-weight:900; color:var(--brand);"></div>
+          <div class="small" style="margin-top:6px;">
+            Le compte à rebours s’arrête automatiquement quand l’ouverture commence.
+          </div>
+        </div>
 
-<!-- STATS -->
-<section class="wrap">
-  <h2 class="section-title">Retour 1ère édition</h2>
+        <div class="actions">
+          <button class="btn primary" onclick="go('kova')">Découvrir K’Nova</button>
+          <button class="btn ghost" onclick="go('proposons')">Voir ce qu’on propose</button>
+        </div>
+      </div>
 
-  <div class="stats">
-    <div class="stat">
-      <h3>+60</h3>
-      Participants
+      <div class="card pad">
+        <!-- Photo 1 -->
+        <img class="photo" src="Photo1.jpg" alt="K'Nova en action (Photo 1)">
+        <div class="small" style="margin-top:10px;">
+          Remplace “Photo1.jpg” par ton vrai fichier (tu m’as dit que tu vas modifier tes photos).
+        </div>
+      </div>
     </div>
-    <div class="stat">
-      <h3>+15</h3>
-      Instructeurs & volontaires
+  </section>
+
+  <!-- 1) QU'EST CE QUE K'NOVA -->
+  <section id="page-kova" class="page">
+    <div class="actions">
+      <button class="btn back" onclick="go('inscription')">← Retour</button>
     </div>
-    <div class="stat">
-      <h3>+12</h3>
-      Ateliers scientifiques
+
+    <div class="grid2" style="margin-top:14px;">
+      <div class="card pad">
+        <h2>Qu’est-ce que K’Nova ?</h2>
+        <p class="lead">
+          K’Nova est une initiative éducative innovante basée au Burkina Faso, inspirée du programme
+          Engineering Outreach (Ontario Tech, Canada). :contentReference[oaicite:4]{index=4}
+        </p>
+        <p class="lead">
+          Notre mission : rendre les sciences accessibles, passionnantes et utiles pour les jeunes de 5 à 18 ans,
+          grâce à des ateliers pratiques, ludiques et interactifs. :contentReference[oaicite:5]{index=5}
+        </p>
+        <div class="item">
+          <b>Notre mission</b><br>
+          “Allumer l’étincelle de la science et de l’innovation dans le cœur des jeunes esprits africains.” :contentReference[oaicite:6]{index=6}
+        </div>
+
+        <div class="actions">
+          <button class="btn primary" onclick="go('proposons')">Suivant →</button>
+        </div>
+      </div>
+
+      <div class="card pad">
+        <!-- Photo 1 (ou une autre) -->
+        <img class="photo" src="Photo1.jpg" alt="Photo 1">
+      </div>
     </div>
-    <div class="stat">
-      <h3>03</h3>
-      Semaines d’activités
+  </section>
+
+  <!-- 2) CE QUE NOUS PROPOSONS -->
+  <section id="page-proposons" class="page">
+    <div class="actions">
+      <button class="btn back" onclick="go('kova')">← Retour</button>
     </div>
-  </div>
-</section>
 
-<!-- PROGRAMME -->
-<section id="programme" class="wrap">
-  <h2 class="section-title">Programme</h2>
+    <div class="card pad" style="margin-top:14px;">
+      <h2>Ce que nous proposons</h2>
+      <p class="lead">
+        Chez K’Nova, nous croyons en l’apprentissage par l’action et le jeu. :contentReference[oaicite:7]{index=7}
+      </p>
 
-  <div class="card">
-    Apprendre en faisant : expérimenter, construire, tester et collaborer.<br><br>
-    Exemples : robotique, programmation, fabrication numérique, design, énergie renouvelable.
-  </div>
-</section>
+      <div class="grid2" style="margin-top:14px;">
+        <div class="list">
+          <div class="item">
+            <b>Ateliers scientifiques et technologiques</b><br>
+            Activités pratiques : manipulation, observation, expérimentation. :contentReference[oaicite:8]{index=8}
+          </div>
+          <div class="item">
+            <b>Programmation & modélisation 3D</b><br>
+            Initiation au codage, robotique (Arduino), conception 3D. :contentReference[oaicite:9]{index=9}
+          </div>
+          <div class="item">
+            <b>Défis créatifs & projets d’équipe</b><br>
+            Résoudre des problèmes réels, créativité, gestion de projets. :contentReference[oaicite:10]{index=10}
+          </div>
+          <div class="item">
+            <b>Compétences du 21e siècle</b><br>
+            Communication, collaboration, esprit critique, autonomie, innovation. :contentReference[oaicite:11]{index=11}
+          </div>
+        </div>
 
-<!-- GALERIE -->
-<section id="galerie" class="wrap">
-  <h2 class="section-title">Galerie</h2>
+        <div class="list">
+          <!-- Photos 2 à 5 -->
+          <img class="photo" src="Photo2.jpg" alt="Photo 2">
+          <img class="photo" src="Photo3.jpg" alt="Photo 3" style="margin-top:12px;">
+          <img class="photo" src="Photo4.jpg" alt="Photo 4" style="margin-top:12px;">
+          <img class="photo" src="Photo5.jpg" alt="Photo 5" style="margin-top:12px;">
+        </div>
+      </div>
 
-  <div class="gallery">
-    <img src="IMG_9265.jpg" alt="Atelier K'Nova 1">
-    <img src="IMG_8514.jpg" alt="Atelier K'Nova 2">
-    <img src="IMG_7035jpg.jpg" alt="Atelier K'Nova 3">
-    <img src="IMG_7041jpg.jpg" alt="Atelier K'Nova 4">
-    <img src="IMG_7066jpg.jpg" alt="Atelier K'Nova 5">
-  </div>
-</section>
-
-<!-- INSCRIPTION -->
-<section id="inscription" class="wrap">
-  <h2 class="section-title">Inscriptions</h2>
-
-  <div class="card">
-    Les inscriptions officielles ouvriront le <strong>1er juin</strong>.<br>
-    Les tarifs et détails complets seront publiés à cette date.
-    <div id="countdown" style="margin-top:15px;font-weight:900;color:var(--brand);font-size:18px;"></div>
-
-    <div style="margin-top:15px;">
-      <a href="#contact" class="btn ghost">Être informé par email</a>
+      <div class="actions">
+        <button class="btn primary" onclick="go('programme')">Suivant →</button>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
+  <!-- 3) PROGRAMME + CLASSES -->
+  <section id="page-programme" class="page">
+    <div class="actions">
+      <button class="btn back" onclick="go('proposons')">← Retour</button>
+    </div>
+
+    <div class="card pad" style="margin-top:14px;">
+      <h2>Programme par classes</h2>
+
+      <div class="stats">
+        <div class="stat">
+          <b>CP – CE2</b>
+          Découvrir les sciences en s’amusant, logique de base, curiosité, esprit d’équipe. :contentReference[oaicite:12]{index=12}
+        </div>
+        <div class="stat">
+          <b>CM1 – 6e</b>
+          Structurer sa pensée, concepts simples, confiance via projets collaboratifs. :contentReference[oaicite:13]{index=13}
+        </div>
+        <div class="stat">
+          <b>5e – 3e</b>
+          Défis concrets, autonomie, travail d’équipe, programmation/modélisation. :contentReference[oaicite:14]{index=14}
+        </div>
+        <div class="stat">
+          <b>2nde – Terminale</b>
+          Esprit critique, innovation, projets complexes, technologies avancées. :contentReference[oaicite:15]{index=15}
+        </div>
+      </div>
+
+      <div class="grid2" style="margin-top:16px;">
+        <div class="list">
+          <!-- Photos 6 à 9 -->
+          <img class="photo" src="Photo6.jpg" alt="Photo 6">
+          <img class="photo" src="Photo7.jpg" alt="Photo 7" style="margin-top:12px;">
+        </div>
+        <div class="list">
+          <img class="photo" src="Photo8.jpg" alt="Photo 8">
+          <img class="photo" src="Photo9.jpg" alt="Photo 9" style="margin-top:12px;">
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" onclick="go('equipe')">Suivant →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4) NOTRE EQUIPE -->
+  <section id="page-equipe" class="page">
+    <div class="actions">
+      <button class="btn back" onclick="go('programme')">← Retour</button>
+    </div>
+
+    <div class="card pad" style="margin-top:14px;">
+      <h2>Notre équipe</h2>
+
+      <div class="team" style="margin-top:14px;">
+        <!-- Mets des photos si tu veux : Team1.jpg, Team2.jpg, etc. -->
+        <div class="person">
+          <img class="avatar" src="Team1.jpg" alt="Erwin Nyamweogho">
+          <div>
+            <b>Erwin Nyamweogho</b><br>
+            <span class="role">Fondateur & CEO</span> :contentReference[oaicite:16]{index=16}
+          </div>
+        </div>
+
+        <div class="person">
+          <img class="avatar" src="Team2.jpg" alt="Faez Kere">
+          <div>
+            <b>Faez Kere</b><br>
+            <span class="role">Directeur Général</span> :contentReference[oaicite:17]{index=17}
+          </div>
+        </div>
+
+        <div class="person">
+          <img class="avatar" src="Team3.jpg" alt="Rhyslène Ouedraogo">
+          <div>
+            <b>Rhyslène Ouedraogo</b><br>
+            <span class="role">Coordinatrice Éducative</span>
+          </div>
+        </div>
+
+        <div class="person">
+          <img class="avatar" src="Team4.jpg" alt="Fahad Salambéré">
+          <div>
+            <b>Fahad Salambéré</b><br>
+            <span class="role">Coordonnateur Opérationnel</span> :contentReference[oaicite:18]{index=18}
+          </div>
+        </div>
+
+        <div class="person">
+          <img class="avatar" src="Team5.jpg" alt="Franck Kiemde">
+          <div>
+            <b>Franck Kiemde</b><br>
+            <span class="role">Responsable Communication Digitale</span> :contentReference[oaicite:19]{index=19}
+          </div>
+        </div>
+      </div>
+
+      <div class="actions" style="margin-top:16px;">
+        <button class="btn primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          Nous contacter ↓
+        </button>
+      </div>
+
+      <div class="small" style="margin-top:10px;">
+        Si tu n’as pas encore les photos d’équipe, laisse “Team1.jpg…Team5.jpg” pour plus tard (ou remplace par tes vrais noms).
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- CONTACT (toujours en bas) -->
 <footer id="contact">
-  <div>Contact : <strong><a href="mailto:knovabf@gmail.com" style="color:var(--brand);text-decoration:none;">knovabf@gmail.com</a></strong></div>
-  <div>© <span id="year"></span> K’Nova — Vacances de Génie</div>
+  <div class="wrap footer-inner">
+    <div class="contact-row">
+      <span class="pill">📞 +226 66 66 62 12</span>
+      <span class="pill">📞 +226 01 71 23 33</span>
+      <a class="pill" href="mailto:knovabf@gmail.com">✉️ knovabf@gmail.com</a>
+    </div>
+
+    <div class="small">
+      “Vous souhaitez inscrire votre enfant, organiser un atelier ou collaborer avec K’Nova ?
+      Notre équipe est à votre écoute…” :contentReference[oaicite:20]{index=20}
+    </div>
+
+    <div class="small">© <span id="year"></span> K’Nova — Vacances de Génie</div>
+  </div>
 </footer>
 
 <script>
+/* ---- year ---- */
 document.getElementById("year").textContent = new Date().getFullYear();
 
+/* ---- countdown (1er juin) ---- */
 const targetDate = new Date(new Date().getFullYear(), 5, 1); // June 1
 const countdown = document.getElementById("countdown");
 
@@ -346,9 +521,19 @@ function updateCountdown(){
 
   countdown.textContent = days + " jours " + hours + "h " + minutes + "m";
 }
-
 updateCountdown();
 setInterval(updateCountdown, 60000);
+
+/* ---- navigation pages ---- */
+const pages = ["inscription","kova","proposons","programme","equipe"];
+
+function go(name){
+  for(const p of pages){
+    document.getElementById("page-" + p).classList.remove("active");
+  }
+  document.getElementById("page-" + name).classList.add("active");
+  window.scrollTo({top: 0, behavior: "smooth"});
+}
 </script>
 
 </body>
