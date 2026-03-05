@@ -461,47 +461,71 @@ h3{margin:0 0 10px; font-size:18px}
 }
 
 /* bloc image */
+/* PROGRAMME - images (qualité améliorée) */
+
 .program-media{
   padding:14px;
   display:flex;
   align-items:center;
   justify-content:center;
-  min-width: 240px; /* évite que l'image soit trop serrée en 2x2 */
+  min-width:300px; /* empêche l'image d'être écrasée */
 }
 
-/* image : rendu stable + plus grand (donc “plus net”) */
 .program-photo{
   width:100%;
-  height:230px;          /* augmente = meilleure perception sur desktop */
+  height:260px; /* image plus grande = meilleure netteté */
   object-fit:cover;
   border-radius:16px;
   display:block;
+
   transform: translateZ(0);
+  backface-visibility: hidden;
   transition: transform .35s ease;
 }
 
+/* léger zoom au hover */
 .program-card:hover .program-photo{
   transform: scale(1.03);
 }
 
-/* MOBILE : empile texte + image */
-@media (max-width: 900px){
+/* écran moyen : empile pour éviter de compresser l'image */
+@media (max-width:1100px){
+
   .program-inner{
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
+  }
+
+  .program-media{
+    min-width:0;
+    padding:0 16px 16px;
+  }
+
+  .program-photo{
+    height:260px;
+  }
+
+}
+
+/* MOBILE */
+@media (max-width:900px){
+
+  .program-inner{
+    grid-template-columns:1fr;
   }
 
   .program-media{
     padding:0 16px 16px;
-    min-width: 0;
+    min-width:0;
   }
 
   .program-photo{
-    height:240px;        /* un peu plus grand sur mobile */
+    height:240px;
   }
 
   .program-text p{
-    font-size:16px;      /* lisible sur téléphone */
+    font-size:16px;
   }
+
 }
   
 /* FOOTER CONTACT */
