@@ -64,10 +64,18 @@ body{
   margin:0;
   font-family:'Montserrat', sans-serif;
   color:var(--text);
+
   background:
-    radial-gradient(900px 520px at 15% -10%, rgba(124,58,237,.18), transparent 60%),
-    radial-gradient(900px 520px at 90% 10%, rgba(245,158,11,.10), transparent 60%),
-    var(--bg);
+  radial-gradient(900px 520px at 15% -10%, rgba(124,58,237,.18), transparent 60%),
+  radial-gradient(900px 520px at 90% 10%, rgba(245,158,11,.10), transparent 60%),
+
+  url("pattern-stem.svg");
+
+  background-size: 700px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+
+  background-color: var(--bg);
 }
 
 h1, h2, h3{
