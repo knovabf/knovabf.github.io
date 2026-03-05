@@ -61,9 +61,8 @@
 html{scroll-behavior:smooth}
 
 /* PATTERN STEM discret en arrière-plan (sans fichier) */
-body{
-  position: relative;
-}
+/* PATTERN STEM discret en arrière-plan */
+body{ position: relative; }
 
 body::before{
   content:"";
@@ -71,15 +70,14 @@ body::before{
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: .25; /* ajuste 0.12 -> 0.22 */
 
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='520' viewBox='0 0 520 520'%3E%3Cdefs%3E%3Cpattern id='p' width='260' height='260' patternUnits='userSpaceOnUse'%3E%3C!-- grille --%3E%3Cpath d='M0 0H260V260H0Z' fill='none'/%3E%3Cpath d='M0 52H260 M0 104H260 M0 156H260 M0 208H260' stroke='%235b21b6' stroke-opacity='0.14' stroke-width='1'/%3E%3Cpath d='M52 0V260 M104 0V260 M156 0V260 M208 0V260' stroke='%235b21b6' stroke-opacity='0.14' stroke-width='1'/%3E%3C!-- axes plus marqués --%3E%3Cpath d='M0 130H260 M130 0V260' stroke='%237c3aed' stroke-opacity='0.18' stroke-width='1.5'/%3E%3C!-- courbe (science/data) --%3E%3Cpath d='M18 190 C60 120, 95 210, 130 140 C165 70, 205 170, 242 95' fill='none' stroke='%237c3aed' stroke-opacity='0.16' stroke-width='2'/%3E%3C!-- icône atome (simple) --%3E%3Cg transform='translate(176 28)' stroke='%235b21b6' stroke-opacity='0.18' fill='none'%3E%3Cellipse cx='28' cy='28' rx='24' ry='10'/%3E%3Cellipse cx='28' cy='28' rx='24' ry='10' transform='rotate(60 28 28)'/%3E%3Cellipse cx='28' cy='28' rx='24' ry='10' transform='rotate(120 28 28)'/%3E%3Ccircle cx='28' cy='28' r='3' fill='%235b21b6' fill-opacity='0.22' stroke='none'/%3E%3C/g%3E%3C!-- icône code (<> ) --%3E%3Ctext x='18' y='44' font-family='Arial' font-size='18' fill='%235b21b6' fill-opacity='0.18'%3E%26lt%3E%26gt%3E%3C/text%3E%3C!-- icône engrenage (mini) --%3E%3Cg transform='translate(30 150)' fill='%237c3aed' fill-opacity='0.16'%3E%3Ccircle cx='18' cy='18' r='8'/%3E%3Crect x='17' y='0' width='2' height='6'/%3E%3Crect x='17' y='30' width='2' height='6'/%3E%3Crect x='0' y='17' width='6' height='2'/%3E%3Crect x='30' y='17' width='6' height='2'/%3E%3Crect x='5' y='5' width='5' height='2' transform='rotate(45 5 5)'/%3E%3Crect x='31' y='5' width='5' height='2' transform='rotate(135 31 5)'/%3E%3Crect x='5' y='31' width='5' height='2' transform='rotate(315 5 31)'/%3E%3Crect x='31' y='31' width='5' height='2' transform='rotate(225 31 31)'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect width='520' height='520' fill='url(%23p)'/%3E%3C/svg%3E");
-
+  opacity: .50; /* 0.12 -> 0.22 */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='520' viewBox='0 0 520 520'%3E%3Cdefs%3E%3Cpattern id='p' width='260' height='260' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 0H260V260H0Z' fill='none'/%3E%3Cpath d='M0 52H260 M0 104H260 M0 156H260 M0 208H260' stroke='%235b21b6' stroke-opacity='0.14' stroke-width='1'/%3E%3Cpath d='M52 0V260 M104 0V260 M156 0V260 M208 0V260' stroke='%235b21b6' stroke-opacity='0.14' stroke-width='1'/%3E%3Cpath d='M0 130H260 M130 0V260' stroke='%237c3aed' stroke-opacity='0.18' stroke-width='1.5'/%3E%3Cpath d='M18 190 C60 120, 95 210, 130 140 C165 70, 205 170, 242 95' fill='none' stroke='%237c3aed' stroke-opacity='0.16' stroke-width='2'/%3E%3Cg transform='translate(176 28)' stroke='%235b21b6' stroke-opacity='0.18' fill='none'%3E%3Cellipse cx='28' cy='28' rx='24' ry='10'/%3E%3Cellipse cx='28' cy='28' rx='24' ry='10' transform='rotate(60 28 28)'/%3E%3Cellipse cx='28' cy='28' rx='24' ry='10' transform='rotate(120 28 28)'/%3E%3Ccircle cx='28' cy='28' r='3' fill='%235b21b6' fill-opacity='0.22' stroke='none'/%3E%3C/g%3E%3Ctext x='18' y='44' font-family='Arial' font-size='18' fill='%235b21b6' fill-opacity='0.18'%3E%26lt%3E%26gt%3E%3C/text%3E%3Cg transform='translate(30 150)' fill='%237c3aed' fill-opacity='0.16'%3E%3Ccircle cx='18' cy='18' r='8'/%3E%3Crect x='17' y='0' width='2' height='6'/%3E%3Crect x='17' y='30' width='2' height='6'/%3E%3Crect x='0' y='17' width='6' height='2'/%3E%3Crect x='30' y='17' width='6' height='2'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect width='520' height='520' fill='url(%23p)'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-size: 420px 420px;
+  background-size: 560px 560px;
 }
 
-/* important : ton contenu doit rester au-dessus */
+/* contenu au-dessus */
 .nav, main, footer{ position: relative; z-index: 1; }
   
 
