@@ -404,35 +404,26 @@ h3{margin:0 0 10px; font-size:18px}
 /* PROGRAMME (style brochure) : 2x2 sur ordi, 1 colonne sur mobile */
 .program-grid{
   display:grid;
-  grid-template-columns: repeat(2, minmax(340px, 1fr)); /* 2x2 desktop */
-  gap:22px;
-  margin-top:18px;
+  grid-template-columns: repeat(2, minmax(320px, 1fr)); /* 2x2 desktop */
+  gap:20px;
 }
 
 @media (max-width: 900px){
-  .program-grid{
-    grid-template-columns: 1fr; /* mobile */
-    gap:18px;
-  }
+  .program-grid{ grid-template-columns: 1fr; } /* mobile */
 }
 
-/* Carte */
 .program-card{
   border-radius:20px;
   background:rgba(255,255,255,.95);
-  border:2px solid rgba(91,33,182,.28);   /* même contour pour les 4 */
+  border:2px solid rgba(91,33,182,.22);
   box-shadow: 0 14px 32px rgba(91,33,182,.10);
   overflow:hidden;
   padding:0;
-
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  will-change: transform;
 }
 
-.program-card:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 18px 42px rgba(91,33,182,.18);
-  border-color: rgba(91,33,182,.45);
+/* alternance violet / orange comme brochure */
+.program-card:nth-child(even){
+  border-color: rgba(245,158,11,.40);
 }
 
 /* layout interne : texte à gauche, image à droite */
@@ -457,75 +448,51 @@ h3{margin:0 0 10px; font-size:18px}
   margin:0;
   color:var(--muted);
   line-height:1.65;
-  font-size:15.8px;
+  font-size:15.5px;
 }
 
-/* bloc image */
-/* PROGRAMME - images (qualité améliorée) */
-
+/* image à droite (proportionnée) */
 .program-media{
   padding:14px;
   display:flex;
   align-items:center;
   justify-content:center;
-  min-width:300px; /* empêche l'image d'être écrasée */
 }
 
+/* PROGRAMME - images nettes */
 .program-photo{
-  width:100%;
-  height:260px; /* image plus grande = meilleure netteté */
-  object-fit:cover;
-  border-radius:16px;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 16px;
   display:block;
 
+  image-rendering: auto;
+  -webkit-font-smoothing: antialiased;
   transform: translateZ(0);
-  backface-visibility: hidden;
-  transition: transform .35s ease;
 }
 
-/* léger zoom au hover */
-.program-card:hover .program-photo{
-  transform: scale(1.03);
-}
-
-/* écran moyen : empile pour éviter de compresser l'image */
-@media (max-width:1100px){
+/* MOBILE : 1 colonne + image en dessous */
+@media (max-width: 900px){
+  .program-grid{
+    grid-template-columns: 1fr;
+  }
 
   .program-inner{
-    grid-template-columns:1fr;
-  }
-
-  .program-media{
-    min-width:0;
-    padding:0 16px 16px;
-  }
-
-  .program-photo{
-    height:260px;
-  }
-
-}
-
-/* MOBILE */
-@media (max-width:900px){
-
-  .program-inner{
-    grid-template-columns:1fr;
+    grid-template-columns: 1fr;
   }
 
   .program-media{
     padding:0 16px 16px;
-    min-width:0;
   }
 
   .program-photo{
-    height:240px;
+    min-height:210px;
   }
 
   .program-text p{
     font-size:16px;
   }
-
 }
   
 /* FOOTER CONTACT */
