@@ -21,27 +21,6 @@
   --shadow:0 16px 40px rgba(91,33,182,.14);
   --radius:18px;
   --max:1120px;
-}  /* <-- IMPORTANT: fermeture de :root */
-
-/* Programme */
-.program-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:20px;
-  margin-top:20px;
-}
-
-.program-card{
-  background:white;
-  padding:16px;
-  border-radius:18px;
-  box-shadow:var(--shadow);
-  text-align:center;
-}
-
-.program-card h3{
-  margin-top:10px;
-  color:var(--brand);
 }
 
 *{box-sizing:border-box}
@@ -92,36 +71,23 @@ body{
 
 /* LAYOUT PAGES */
 main{padding:26px 0 10px}
-.page{
-  display:none;
-  padding:26px 0;
-}
+.page{display:none; padding:26px 0;}
 .page.active{display:block}
 
-.hero{
-  display:grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap:20px;
-  align-items:center;
-}
-@media (max-width: 900px){
-  .hero{grid-template-columns: 1fr}
-}
+/* TITRES */
+h1{margin:0 0 10px; font-size:42px; line-height:1.08}
+h2{margin:0 0 14px; font-size:30px}
+h3{margin:0 0 10px; font-size:18px}
+.lead{color:var(--muted); line-height:1.65; font-size:17px}
 
+/* UI */
 .card{
   background:var(--card);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
   border:1px solid rgba(91,33,182,.08);
 }
-
 .pad{padding:26px}
-
-h1{margin:0 0 10px; font-size:42px; line-height:1.08}
-h2{margin:0 0 14px; font-size:30px}
-h3{margin:0 0 10px; font-size:18px}
-
-.lead{color:var(--muted); line-height:1.65; font-size:17px}
 
 .badge{
   display:inline-flex; align-items:center; gap:8px;
@@ -162,7 +128,7 @@ h3{margin:0 0 10px; font-size:18px}
 .btn.back{border-color:rgba(91,33,182,.12); color:var(--muted)}
 .btn.back:hover{background:rgba(0,0,0,.04)}
 
-/* IMAGE BLOCKS */
+/* IMAGE */
 .photo{
   width:100%;
   aspect-ratio: 4/3;
@@ -171,15 +137,19 @@ h3{margin:0 0 10px; font-size:18px}
   display:block;
   border:1px solid rgba(91,33,182,.10);
 }
-
-/* GRID CONTENT */
-.grid2{display:grid; grid-template-columns: 1fr 1fr; gap:16px}
-@media (max-width: 900px){.grid2{grid-template-columns:1fr}}
-
-.list{
+.hero{
   display:grid;
-  gap:12px;
+  grid-template-columns: 1.1fr .9fr;
+  gap:20px;
+  align-items:center;
 }
+.grid2{display:grid; grid-template-columns: 1fr 1fr; gap:16px}
+@media (max-width: 900px){
+  .hero{grid-template-columns: 1fr}
+  .grid2{grid-template-columns: 1fr}
+}
+
+/* INSCRIPTION countdown */
 .item{
   padding:14px;
   border-radius:16px;
@@ -187,36 +157,90 @@ h3{margin:0 0 10px; font-size:18px}
   background:rgba(255,255,255,.70);
 }
 
-.stats{
+/* CE QUE NOUS PROPOSONS (style brochure) */
+.offer-grid{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
-  gap:12px;
-  margin-top:14px;
+  grid-template-columns: 1fr;
+  gap:14px;
+  margin-top:16px;
 }
-.stat{
-  padding:14px; border-radius:16px;
-  background:rgba(91,33,182,.06);
-  border:1px solid var(--line);
+.offer-card{
+  display:grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap:16px;
+  align-items:center;
+  padding:16px;
+  border-radius:18px;
+  border:1px solid rgba(91,33,182,.12);
+  background:rgba(255,255,255,.78);
+  box-shadow: 0 10px 26px rgba(91,33,182,.08);
 }
-.stat b{display:block; font-size:22px; color:var(--brand)}
+.offer-card:nth-child(even){
+  border-color: rgba(245,158,11,.28);
+  background: rgba(255,255,255,.88);
+}
+.offer-title{
+  color:var(--brand);
+  font-weight:950;
+  letter-spacing:.2px;
+  margin:0 0 6px;
+  font-size:18px;
+  text-transform:uppercase;
+}
+.offer-text{
+  margin:0;
+  color:var(--muted);
+  line-height:1.6;
+}
+.offer-img{
+  width:100%;
+  aspect-ratio: 4/3;
+  object-fit:cover;
+  border-radius:16px;
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow: var(--shadow);
+}
+@media (max-width: 900px){
+  .offer-card{grid-template-columns:1fr}
+}
+
+/* PROGRAMME cards */
+.program-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;
+  margin-top:18px;
+}
+.program-card{
+  background:white;
+  padding:16px;
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  text-align:left;
+  border:1px solid rgba(91,33,182,.10);
+}
+.program-card h3{margin:10px 0 8px; color:var(--brand)}
+.program-card p{margin:0; color:var(--muted); line-height:1.55}
+.program-card .photo{aspect-ratio: 16/10}
 
 /* TEAM */
 .team{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
   gap:14px;
+  margin-top:14px;
 }
 .person{
   padding:14px;
   border-radius:18px;
   border:1px solid rgba(91,33,182,.10);
-  background:rgba(255,255,255,.75);
+  background:rgba(255,255,255,.80);
   display:flex;
   gap:12px;
   align-items:center;
 }
 .avatar{
-  width:58px; height:58px; border-radius:16px;
+  width:62px; height:62px; border-radius:16px;
   object-fit:cover;
   border:2px solid rgba(245,158,11,.45);
 }
@@ -254,7 +278,6 @@ a{color:inherit}
 <div class="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="#" onclick="go('inscription'); return false;">
-      <!-- Mets ton logo ici (tu peux garder Fichier 1.png si tu veux) -->
       <img class="logo" src="Fichier 1.png" alt="Logo K'Nova">
       <span>K'Nova</span>
     </a>
@@ -297,11 +320,7 @@ a{color:inherit}
       </div>
 
       <div class="card pad">
-        <!-- Photo 1 -->
-       <img class="photo" src="Accueil.jpg"> alt="K'Nova en action (Photo 1)">
-        <div class="small" style="margin-top:10px;">
-          Remplace “Photo1.jpg” par ton vrai fichier (tu m’as dit que tu vas modifier tes photos).
-        </div>
+        <img class="photo" src="Accueil.jpg" alt="K'Nova en action">
       </div>
     </div>
   </section>
@@ -315,6 +334,7 @@ a{color:inherit}
     <div class="grid2" style="margin-top:14px;">
       <div class="card pad">
         <h2>Qu’est-ce que K’Nova ?</h2>
+
         <p class="lead">
           K’Nova est une initiative éducative innovante basée au Burkina Faso, inspirée du programme
           Engineering Outreach (Ontario Tech, Canada).
@@ -323,6 +343,7 @@ a{color:inherit}
           Notre mission : rendre les sciences accessibles, passionnantes et utiles pour les jeunes de 5 à 18 ans,
           grâce à des ateliers pratiques, ludiques et interactifs.
         </p>
+
         <div class="item">
           <b>Notre mission</b><br>
           “Allumer l’étincelle de la science et de l’innovation dans le cœur des jeunes esprits africains.”
@@ -334,8 +355,7 @@ a{color:inherit}
       </div>
 
       <div class="card pad">
-        <!-- Photo 1 (ou une autre) -->
-       <img class="photo" src="K'Nova.png" alt="Photo 1">
+        <img class="photo" src="K Nova.png" alt="K'Nova">
       </div>
     </div>
   </section>
@@ -349,37 +369,57 @@ a{color:inherit}
     <div class="card pad" style="margin-top:14px;">
       <h2>Ce que nous proposons</h2>
       <p class="lead">
-        Chez K’Nova, nous croyons en l’apprentissage par l’action et le jeu.}
+        Chez K’Nova, nous croyons en l’apprentissage par l’action et le jeu.
+        Nos ateliers, à la fois amusants et éducatifs, aident les jeunes à découvrir les sciences autrement,
+        en créant et en collaborant.
       </p>
 
-      <div class="grid2" style="margin-top:14px;">
-        <div class="list">
-          <div class="item">
-            <b>Ateliers scientifiques et technologiques</b><br>
-            Des activités pratiques pour comprendre les bases des sciences à travers la manipulation, l’observation et l’expérimentation. 
-            }
+      <div class="offer-grid">
+
+        <div class="offer-card">
+          <div>
+            <p class="offer-title">Ateliers scientifiques et technologiques</p>
+            <p class="offer-text">
+              Des activités pratiques pour comprendre les bases des sciences à travers la manipulation,
+              l’observation et l’expérimentation.
+            </p>
           </div>
-          <div class="item">
-            <b>Programmation & modélisation 3D</b><br>
-            Initiation au codage, robotique (Arduino), conception 3D. :}
-          </div>
-          <div class="item">
-            <b>Défis créatifs & projets d’équipe</b><br>
-            Résoudre des problèmes réels, créativité, gestion de projets.}
-          </div>
-          <div class="item">
-            <b>Compétences du 21e siècle</b><br>
-            Communication, collaboration, esprit critique, autonomie, innovation. }
-          </div>
+          <img class="offer-img" src="Ateliers.png" alt="Ateliers scientifiques">
         </div>
 
-        <div class="list">
-          <!-- Photos 2 à 5 -->
-         <img class="photo" src="Ateliers.png">
-        <img class="photo" src="Programmation.png" style="margin-top:12px;">
-         <img class="photo" src="Défis.jpg" style="margin-top:12px;">
-          <img class="photo" src="Développement.jpg" style="margin-top:12px;">
+        <div class="offer-card">
+          <div>
+            <p class="offer-title">Programmation & modélisation 3D</p>
+            <p class="offer-text">
+              Initiation au codage, à la robotique (Arduino) et à la conception 3D pour développer des compétences
+              numériques concrètes.
+            </p>
+          </div>
+          <img class="offer-img" src="Programmation.png" alt="Programmation et modélisation 3D">
         </div>
+
+        <div class="offer-card">
+          <div>
+            <p class="offer-title">Défis créatifs et projets d’équipe</p>
+            <p class="offer-text">
+              Les participants travaillent ensemble pour résoudre des problèmes réels, stimuler leur créativité
+              et apprendre à gérer des projets.
+            </p>
+          </div>
+          <img class="offer-img" src="Défis.jpg" alt="Défis créatifs">
+        </div>
+
+        <div class="offer-card">
+          <div>
+            <p class="offer-title">Développement des compétences du 21e siècle</p>
+            <p class="offer-text">
+              Communication, collaboration, esprit critique, autonomie et innovation :
+              des compétences essentielles pour réussir demain.
+            </p>
+          </div>
+          <img class="offer-img" src="Développement.jpg" alt="Compétences du 21e siècle">
+        </div>
+
       </div>
 
       <div class="actions">
@@ -388,66 +428,51 @@ a{color:inherit}
     </div>
   </section>
 
-  <!-- 3) PROGRAMME + CLASSES -->
-<section id="page-programme" class="page">
+  <!-- 3) PROGRAMME -->
+  <section id="page-programme" class="page">
+    <div class="actions">
+      <button class="btn back" onclick="go('proposons')">← Retour</button>
+    </div>
 
-<div class="actions">
-<button class="btn back" onclick="go('proposons')">← Retour</button>
-</div>
+    <div class="card pad" style="margin-top:14px;">
+      <h2>Programme par groupes</h2>
+      <p class="lead">
+        Chaque tranche d’âge suit un parcours adapté : découverte, défis, création et projets.
+      </p>
 
-<div class="card pad" style="margin-top:14px;">
-<h2>Programme par groupes</h2>
+      <div class="program-grid">
 
-<div class="program-grid">
+        <div class="program-card">
+          <img class="photo" src="Cp.jpg" alt="CP – CE2">
+          <h3>CP – CE2</h3>
+          <p>Découvrir les sciences en s’amusant. Curiosité, logique de base, esprit d’équipe.</p>
+        </div>
 
-<!-- CP - CE2 -->
-<div class="program-card">
-<img class="photo" src="Cp.jpg">
-<h3>CP – CE2</h3>
-<p>
-Découvrir les sciences en s’amusant.  
-Développer la curiosité, la logique et l’esprit d’équipe.
-</p>
-</div>
+        <div class="program-card">
+          <img class="photo" src="CM1.jpg" alt="CM1 – 6e">
+          <h3>CM1 – 6e</h3>
+          <p>Explorer des concepts scientifiques via expériences simples et projets collaboratifs.</p>
+        </div>
 
-<!-- CM1 - 6e -->
-<div class="program-card">
-<img class="photo" src="CM1.jpg">
-<h3>CM1 – 6e</h3>
-<p>
-Explorer les concepts scientifiques à travers des expériences
-et des projets collaboratifs.
-</p>
-</div>
+        <div class="program-card">
+          <img class="photo" src="5e.jpg" alt="5e – 3e">
+          <h3>5e – 3e</h3>
+          <p>Défis concrets, autonomie, travail d’équipe, programmation et modélisation.</p>
+        </div>
 
-<!-- 5e - 3e -->
-<div class="program-card">
-<img class="photo" src="5e.jpg">
-<h3>5e – 3e</h3>
-<p>
-Résoudre des défis technologiques, travailler en équipe
-et développer l’autonomie.
-</p>
-</div>
+        <div class="program-card">
+          <img class="photo" src="2nde.jpg" alt="2nde – Terminale">
+          <h3>2nde – Terminale</h3>
+          <p>Projets plus avancés : innovation, esprit critique, technologies et résolution de problèmes.</p>
+        </div>
 
-<!-- 2nde - Terminale -->
-<div class="program-card">
-<img class="photo" src="2nde.jpg">
-<h3>2nde – Terminale</h3>
-<p>
-Approfondir les sciences, programmer et concevoir des projets
-technologiques plus avancés.
-</p>
-</div>
+      </div>
 
-</div>
-
-<div class="actions">
-<button class="btn primary" onclick="go('equipe')">Suivant →</button>
-</div>
-
-</div>
-</section>
+      <div class="actions">
+        <button class="btn primary" onclick="go('equipe')">Suivant →</button>
+      </div>
+    </div>
+  </section>
 
   <!-- 4) NOTRE EQUIPE -->
   <section id="page-equipe" class="page">
@@ -458,21 +483,20 @@ technologiques plus avancés.
     <div class="card pad" style="margin-top:14px;">
       <h2>Notre équipe</h2>
 
-      <div class="team" style="margin-top:14px;">
-        <!-- Mets des photos si tu veux : Team1.jpg, Team2.jpg, etc. -->
+      <div class="team">
         <div class="person">
-         <img class="photo" src="Erwin.jpg" alt="Erwin Nyamweogho">
+          <img class="avatar" src="Erwin.jpg" alt="Erwin Nyamweogho">
           <div>
             <b>Erwin Nyamweogho</b><br>
-            <span class="role">Fondateur & CEO</span> }
+            <span class="role">Fondateur & CEO</span>
           </div>
         </div>
 
         <div class="person">
-         <img class="avatar" src="Faez.jpg" alt="Faez Kere">
+          <img class="avatar" src="Faez.png" alt="Faez Kere">
           <div>
             <b>Faez Kere</b><br>
-            <span class="role">Directeur Général</span> }
+            <span class="role">Directeur Général</span>
           </div>
         </div>
 
@@ -485,18 +509,18 @@ technologiques plus avancés.
         </div>
 
         <div class="person">
-         <img class="avatar" src="Fahad.jpg" alt="Fahad Salambéré">
+          <img class="avatar" src="Fahad.png" alt="Fahad Salambéré">
           <div>
             <b>Fahad Salambéré</b><br>
-            <span class="role">Coordonnateur Opérationnel</span> }
+            <span class="role">Coordonnateur Opérationnel</span>
           </div>
         </div>
 
         <div class="person">
-          <img class="avatar" src="Franck.jpg"> alt="Franck Kiemde">
+          <img class="avatar" src="Franck.png" alt="Franck Kiemde">
           <div>
             <b>Franck Kiemde</b><br>
-            <span class="role">Responsable Communication Digitale</span> }
+            <span class="role">Responsable Communication Digitale</span>
           </div>
         </div>
       </div>
@@ -506,16 +530,12 @@ technologiques plus avancés.
           Nous contacter ↓
         </button>
       </div>
-
-      <div class="small" style="margin-top:10px;">
-        Si tu n’as pas encore les photos d’équipe, laisse “Team1.jpg…Team5.jpg” pour plus tard (ou remplace par tes vrais noms).
-      </div>
     </div>
   </section>
 
 </main>
 
-<!-- CONTACT (toujours en bas) -->
+<!-- CONTACT (en bas) -->
 <footer id="contact">
   <div class="wrap footer-inner">
     <div class="contact-row">
@@ -524,20 +544,15 @@ technologiques plus avancés.
       <a class="pill" href="mailto:knovabf@gmail.com">✉️ knovabf@gmail.com</a>
     </div>
 
-    <div class="small">
-      “Vous souhaitez inscrire votre enfant, organiser un atelier ou collaborer avec K’Nova ?
-      Notre équipe est à votre écoute…” :contentReference[oaicite:20]{index=20}
-    </div>
-
     <div class="small">© <span id="year"></span> K’Nova — Vacances de Génie</div>
   </div>
 </footer>
 
 <script>
-/* ---- year ---- */
+/* year */
 document.getElementById("year").textContent = new Date().getFullYear();
 
-/* ---- countdown (1er juin) ---- */
+/* countdown (1er juin) */
 const targetDate = new Date(new Date().getFullYear(), 5, 1); // June 1
 const countdown = document.getElementById("countdown");
 
@@ -561,9 +576,8 @@ function updateCountdown(){
 updateCountdown();
 setInterval(updateCountdown, 60000);
 
-/* ---- navigation pages ---- */
+/* navigation pages */
 const pages = ["inscription","kova","proposons","programme","equipe"];
-
 function go(name){
   for(const p of pages){
     document.getElementById("page-" + p).classList.remove("active");
