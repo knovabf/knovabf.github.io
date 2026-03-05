@@ -208,6 +208,8 @@ h3{margin:0 0 10px; font-size:18px}
 
   font-style:italic;
   line-height:1.6;
+
+  position:relative;
 }
 
 .mission-box b{
@@ -217,6 +219,14 @@ h3{margin:0 0 10px; font-size:18px}
   color:var(--brand);
 }
 
+.mission-box::before{
+  content:"✨";
+  position:absolute;
+  left:-14px;
+  top:-14px;
+  font-size:22px;
+}
+  
 /* CE QUE NOUS PROPOSONS (compact + images proportionnées) */
 .offer-grid{
   display:grid;
@@ -410,11 +420,11 @@ a{color:inherit}
             K’Nova a pour objectif d’éveiller la curiosité scientifique des jeunes de 5 à 18 ans en leur proposant
             des ateliers pratiques, créatifs et interactifs qui transforment l’apprentissage en expérience concrète.
           </p>
-        <div class="item">
-          <b>Notre mission</b><br>
+        <div class="mission-box">
+          <b>Notre mission</b>
           “Allumer l’étincelle de la science et de l’innovation dans le cœur des jeunes esprits africains.”
         </div>
-
+        
         <div class="actions">
           <button class="btn primary" onclick="go('proposons')">Suivant →</button>
         </div>
