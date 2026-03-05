@@ -371,7 +371,28 @@ h3{margin:0 0 10px; font-size:18px}
   border-color: rgba(245,158,11,.28);
   background: rgba(255,255,255,.90);
 }
+/* HOVER - Ce que nous proposons */
 
+.offer-card{
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.offer-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(91,33,182,.18);
+  border-color: rgba(91,33,182,.30);
+}
+
+/* léger zoom de l'image comme les autres sections */
+
+.offer-img{
+  transition: transform .35s ease;
+}
+
+.offer-card:hover .offer-img{
+  transform: scale(1.03);
+}
+  
 .offer-title{
   color:var(--brand);
   font-weight:950;
