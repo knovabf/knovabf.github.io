@@ -221,20 +221,25 @@ h3{margin:0 0 10px; font-size:18px}
   border:3px solid rgba(245,158,11,.5);
   flex:0 0 auto;
 }
-
+  
+.person-info{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+}
+  
 .person b{
-  display:block;
-  font-size:16px;
-  line-height:1.15;
-  margin-bottom:6px;
+  font-size:18px;
+  font-weight:700;
   color:var(--text);
 }
 
 .role{
   color:var(--brand);
-  font-weight:700;
-  font-size:13px;
-  letter-spacing:.3px;
+  font-weight:600;
+  font-size:16px;
+  margin-left:10px;
 }
   
 /* INSCRIPTION countdown */
@@ -588,14 +593,17 @@ a{color:inherit}
       <h2>Notre équipe</h2>
 
       <div class="team">
-        <div class="person">
-          <img class="avatar" src="Erwin.jpg" alt="Erwin Nyamweogho">
-          <div>
-            <b>Erwin Nyamweogho</b><br>
-            <span class="role">Fondateur & CEO</span>
-          </div>
-        </div>
+  <div class="person">
+    <img class="avatar" src="Erwin.jpg" alt="Erwin Nyamweogho">
 
+    <div class="person-info">
+      <b>Erwin Nyamweogho</b>
+      <span class="role">Fondateur & CEO</span>
+    </div>
+
+  </div>
+</div>
+      
         <div class="person">
           <img class="avatar" src="Faez.png" alt="Faez Kere">
           <div>
