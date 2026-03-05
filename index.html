@@ -221,16 +221,15 @@ h3{margin:0 0 10px; font-size:18px}
   border:3px solid rgba(245,158,11,.5);
   flex:0 0 auto;
 }
-  
 .person-info{
   display:flex;
   align-items:center;
   flex-wrap:wrap;
-  gap:8px;
+  gap:6px;
 }
-  
+
 .person b{
-  font-size:18px;
+  font-size:20px;
   font-weight:700;
   color:var(--text);
 }
@@ -238,8 +237,12 @@ h3{margin:0 0 10px; font-size:18px}
 .role{
   color:var(--brand);
   font-weight:600;
-  font-size:16px;
-  margin-left:10px;
+  font-size:17px;
+}
+
+.role::before{
+  content:" — ";
+  color:var(--muted);
 }
   
 /* INSCRIPTION countdown */
