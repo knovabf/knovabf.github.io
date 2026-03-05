@@ -60,23 +60,31 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 
+/* PATTERN STEM discret en arrière-plan (sans fichier) */
 body{
-  margin:0;
-  font-family:'Montserrat', sans-serif;
-  color:var(--text);
-
-  background:
-  radial-gradient(900px 520px at 15% -10%, rgba(124,58,237,.18), transparent 60%),
-  radial-gradient(900px 520px at 90% 10%, rgba(245,158,11,.10), transparent 60%),
-
-  url("pattern-stem.svg");
-
-  background-size: 700px;
-  background-repeat: repeat;
-  background-attachment: fixed;
-
-  background-color: var(--bg);
+  position: relative;
 }
+
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .10; /* ajuste entre .06 et .12 selon ton goût */
+
+  /* Réseau de points + lignes (SVG en data-uri) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'%3E%3Cdefs%3E%3Cpattern id='p' width='140' height='140' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 70H140 M70 0V140' stroke='%235b21b6' stroke-opacity='0.18' stroke-width='1'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%235b21b6' fill-opacity='0.22'/%3E%3Ccircle cx='70' cy='70' r='2' fill='%237c3aed' fill-opacity='0.22'/%3E%3Ccircle cx='128' cy='128' r='2' fill='%235b21b6' fill-opacity='0.22'/%3E%3Ccircle cx='128' cy='12' r='2' fill='%237c3aed' fill-opacity='0.22'/%3E%3Ccircle cx='12' cy='128' r='2' fill='%237c3aed' fill-opacity='0.22'/%3E%3Cpath d='M12 12 L70 70 L128 12 M12 128 L70 70 L128 128' stroke='%237c3aed' stroke-opacity='0.16' stroke-width='1' fill='none'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='420' height='420' fill='url(%23p)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 520px 520px; /* densité du motif */
+}
+
+/* Assure que ton contenu reste au-dessus du pattern */
+.nav, main, footer{
+  position: relative;
+  z-index: 1;
+}
+  
 
 h1, h2, h3{
   font-family:"MuseoRounded", 'Montserrat', sans-serif;
