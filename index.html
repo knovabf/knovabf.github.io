@@ -180,40 +180,43 @@ h3{margin:0 0 10px; font-size:18px}
   .grid2{grid-template-columns: 1fr}
 }
 
-/* TEAM - 1 colonne + visages plus grands */
+/* TEAM */
 .team{
   display:flex;
   flex-direction:column;
-  gap:14px;
-  margin-top:14px;
+  gap:26px; /* espace entre les personnes */
+  margin-top:20px;
 }
 
 .person{
   width:100%;
-  padding:18px;
-  border-radius:18px;
-  border:1px solid rgba(91,33,182,.10);
+  padding:22px 24px;
+  border-radius:20px;
+  border:1px solid rgba(91,33,182,.12);
   background:rgba(255,255,255,.95);
 
   display:flex;
-  gap:16px;
   align-items:center;
+  gap:20px;
 
-  box-shadow:0 8px 18px rgba(0,0,0,.05);
+  box-shadow:0 10px 22px rgba(0,0,0,.06);
   transition:all .25s ease;
-
-  border-left:5px solid var(--brand);
 }
 
 .person:hover{
-  transform:translateY(-3px);
-  box-shadow:0 14px 30px rgba(91,33,182,.18);
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(91,33,182,.18);
+}
+  
+.person{
+  border-left:6px solid var(--brand);
 }
 
+/* PHOTO */
 .avatar{
-  width:96px;
-  height:96px;
-  border-radius:24px;
+  width:120px;
+  height:120px;
+  border-radius:26px;
 
   object-fit:cover;
   object-position:center;
@@ -221,29 +224,34 @@ h3{margin:0 0 10px; font-size:18px}
   border:3px solid rgba(245,158,11,.5);
   flex:0 0 auto;
 }
+
+/* TEXTE */
 .person-info{
   display:flex;
   align-items:center;
-  flex-wrap:wrap;
-  gap:6px;
+  gap:8px;
 }
 
+/* NOM */
 .person b{
-  font-size:20px;
+  font-size:22px;
   font-weight:700;
   color:var(--text);
 }
 
+/* ROLE */
 .role{
-  color:var(--brand);
+  font-size:18px;
   font-weight:600;
-  font-size:17px;
+  color:var(--brand);
 }
 
+/* tiret automatique */
 .role::before{
   content:" — ";
   color:var(--muted);
 }
+
   
 /* INSCRIPTION countdown */
 .item{
@@ -596,49 +604,48 @@ a{color:inherit}
       <h2>Notre équipe</h2>
 
       <div class="team">
+
   <div class="person">
     <img class="avatar" src="Erwin.jpg" alt="Erwin Nyamweogho">
-
     <div class="person-info">
       <b>Erwin Nyamweogho</b>
       <span class="role">Fondateur & CEO</span>
     </div>
-
   </div>
+
+  <div class="person">
+    <img class="avatar" src="Faez.png" alt="Faez Kere">
+    <div class="person-info">
+      <b>Faez Kere</b>
+      <span class="role">Directeur Général</span>
+    </div>
+  </div>
+
+  <div class="person">
+    <img class="avatar" src="rhyslene.jpg" alt="Rhyslène Ouedraogo">
+    <div class="person-info">
+      <b>Rhyslène Ouedraogo</b>
+      <span class="role">Coordinatrice Éducative</span>
+    </div>
+  </div>
+
+  <div class="person">
+    <img class="avatar" src="Fahad.png" alt="Fahad Salambéré">
+    <div class="person-info">
+      <b>Fahad Salambéré</b>
+      <span class="role">Coordonnateur Opérationnel</span>
+    </div>
+  </div>
+
+  <div class="person">
+    <img class="avatar" src="Franck.png" alt="Franck Kiemde">
+    <div class="person-info">
+      <b>Franck Kiemde</b>
+      <span class="role">Responsable Communication Digitale</span>
+    </div>
+  </div>
+
 </div>
-      
-        <div class="person">
-          <img class="avatar" src="Faez.png" alt="Faez Kere">
-          <div>
-            <b>Faez Kere</b><br>
-            <span class="role">Directeur Général</span>
-          </div>
-        </div>
-
-        <div class="person">
-          <img class="avatar" src="rhyslene.jpg" alt="Rhyslène Ouedraogo">
-          <div>
-            <b>Rhyslène Ouedraogo</b><br>
-            <span class="role">Coordinatrice Éducative</span>
-          </div>
-        </div>
-
-        <div class="person">
-          <img class="avatar" src="Fahad.png" alt="Fahad Salambéré">
-          <div>
-            <b>Fahad Salambéré</b><br>
-            <span class="role">Coordonnateur Opérationnel</span>
-          </div>
-        </div>
-
-        <div class="person">
-          <img class="avatar" src="Franck.png" alt="Franck Kiemde">
-          <div>
-            <b>Franck Kiemde</b><br>
-            <span class="role">Responsable Communication Digitale</span>
-          </div>
-        </div>
-      </div>
 
       <div class="actions" style="margin-top:16px;">
         <button class="btn primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
