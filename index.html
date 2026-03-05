@@ -300,6 +300,12 @@ h3{margin:0 0 10px; font-size:18px}
 
 }
   
+/*Subtile*/
+  .subtitle{
+  display:block;
+  font-size:36px;
+}
+  
 /* INSCRIPTION countdown */
 .item{
   padding:14px;
@@ -395,52 +401,85 @@ h3{margin:0 0 10px; font-size:18px}
   .offer-img{height:190px} /* un peu plus haut sur mobile */
 }
 
-/* PROGRAMME */
+/* PROGRAMME (style brochure) : 2x2 sur ordi, 1 colonne sur mobile */
 .program-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:22px;
-  margin-top:20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 colonnes */
+  gap:20px;
+  margin-top:18px;
 }
 
 .program-card{
-  background:white;
-  padding:18px;
-  border-radius:18px;
-  border:1px solid rgba(91,33,182,.10);
-
-  box-shadow:0 10px 26px rgba(91,33,182,.10);
-
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-
-  transition:transform .25s ease, box-shadow .25s ease;
+  border-radius:20px;
+  background:rgba(255,255,255,.95);
+  border:2px solid rgba(91,33,182,.22);
+  box-shadow: 0 14px 32px rgba(91,33,182,.10);
+  overflow:hidden;
+  padding:0;
 }
 
-.program-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 18px 38px rgba(91,33,182,.18);
+/* alternance violet / orange comme brochure */
+.program-card:nth-child(even){
+  border-color: rgba(245,158,11,.40);
 }
 
-.program-card .photo{
-  width:100%;
-  aspect-ratio:16/10;
-  object-fit:cover;
-  border-radius:14px;
+/* layout interne : texte à gauche, image à droite */
+.program-inner{
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items:stretch;
 }
 
-.program-card h3{
-  margin-top:6px;
+/* bloc texte */
+.program-text{
+  padding:18px 18px 16px;
+}
+.program-text h3{
+  margin:0 0 10px;
   color:var(--brand);
-  font-size:18px;
+  font-weight:900;
 }
-
-.program-card p{
+.program-text p{
   margin:0;
   color:var(--muted);
-  line-height:1.6;
-  font-size:15px;
+  line-height:1.65;
+  font-size:15.5px;
+}
+
+/* image à droite (proportionnée) */
+.program-media{
+  padding:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.program-photo{
+  width:100%;
+  height:100%;
+  min-height:190px;          /* donne la hauteur “brochure” */
+  border-radius:18px;
+  object-fit:cover;
+  object-position:center;
+  border:1px solid rgba(0,0,0,.06);
+}
+
+/* MOBILE : 1 colonne + image en dessous */
+@media (max-width: 900px){
+  .program-grid{
+    grid-template-columns: 1fr; /* 1 colonne */
+  }
+  .program-inner{
+    grid-template-columns: 1fr; /* empile */
+  }
+  .program-media{
+    padding:0 16px 16px;
+  }
+  .program-photo{
+    min-height:210px;
+  }
+  .program-text p{
+    font-size:16px; /* lisible sur téléphone */
+  }
 }
   
 /* FOOTER CONTACT */
@@ -498,7 +537,10 @@ a{color:inherit}
       <div class="card pad">
        <div class="badge">Vacances de Génie — STEM (5 à 18 ans)</div>
 
-<h1>K'Nova — Vacances de Génie</h1>
+<h1>
+  K'Nova
+  <span class="subtitle">Vacances de Génie</span>
+</h1>
 
 <p class="lead">
   Là où nos idées prennent vie
@@ -632,54 +674,80 @@ a{color:inherit}
 
   <!-- 3) PROGRAMME -->
   <section id="page-programme" class="page">
-    <div class="actions">
-      <button class="btn back" onclick="go('proposons')">← Retour</button>
-    </div>
+  <div class="actions">
+    <button class="btn back" onclick="go('proposons')">← Retour</button>
+  </div>
 
-    <div class="card pad" style="margin-top:14px;">
-      <h2>Programme par groupes</h2>
-      <p class="lead">
-        Chaque tranche d’âge suit un parcours adapté : découverte, défis, création et projets.
-      </p>
+  <div class="card pad" style="margin-top:14px;">
+    <h2>Programme par groupes</h2>
+    <p class="lead">Chaque tranche d’âge suit un parcours adapté : découverte, défis, création et projets.</p>
 
       <div class="program-grid">
 
-       <div class="program-card">
-  <img class="photo" src="Cp.jpg" alt="Atelier scientifique enfants CP CE2 K'Nova">
-
-  <h3>CP – CE2</h3>
-
-  <p>
-    Votre enfant découvre les sciences en s’amusant. À travers des activités ludiques et concrètes,
-    nous éveillons sa curiosité, développons sa logique de base et stimulons son imagination,
-    tout en encourageant l’esprit d’équipe.
-  </p>
-</div>
-
-        <div class="program-card">
-          <img class="photo" src="CM1.jpg" alt="CM1 – 6e">
-          <h3>CM1 – 6e</h3>
-          <p>Explorer des concepts scientifiques via expériences simples et projets collaboratifs.</p>
-        </div>
-
-        <div class="program-card">
-          <img class="photo" src="group1.jpg" alt="5e-2nd">
-          <h3>5e – 3e</h3>
-          <p>Défis concrets, autonomie, travail d’équipe, programmation et modélisation.</p>
-        </div>
-
-        <div class="program-card">
-          <img class="photo" src="group2.jpg" alt="2nde – Terminale">
-          <h3>2nde – Terminale</h3>
-          <p>Projets plus avancés : innovation, esprit critique, technologies et résolution de problèmes.</p>
-        </div>
-
+  <div class="program-card">
+    <div class="program-inner">
+      <div class="program-text">
+        <h3>CP – CE2</h3>
+        <p>
+          Votre enfant découvre les sciences en s’amusant. À travers des activités ludiques et concrètes,
+          nous éveillons sa curiosité, développons sa logique de base et stimulons son imagination,
+          tout en encourageant l’esprit d’équipe.
+        </p>
       </div>
-
-      <div class="actions">
-        <button class="btn primary" onclick="go('equipe')">Suivant →</button>
+      <div class="program-media">
+        <img class="program-photo" src="Cp.jpg" alt="CP – CE2">
       </div>
     </div>
+  </div>
+
+  <div class="program-card">
+    <div class="program-inner">
+      <div class="program-text">
+        <h3>CM1 – 6e</h3>
+        <p>
+          L’enfant commence à expérimenter par lui-même. Nos ateliers l’aident à structurer sa pensée,
+          comprendre des concepts scientifiques simples et gagner en confiance grâce à des projets collaboratifs.
+        </p>
+      </div>
+      <div class="program-media">
+        <img class="program-photo" src="CM1.jpg" alt="CM1 – 6e">
+      </div>
+    </div>
+  </div>
+
+  <div class="program-card">
+    <div class="program-inner">
+      <div class="program-text">
+        <h3>5e – 3e</h3>
+        <p>
+          Les élèves développent leurs compétences techniques et leur autonomie. Ils apprennent à résoudre
+          des défis concrets, travailler en équipe et utiliser des outils comme la programmation
+          ou la modélisation.
+        </p>
+      </div>
+      <div class="program-media">
+        <img class="program-photo" src="group1.jpg" alt="5e – 3e">
+      </div>
+    </div>
+  </div>
+
+  <div class="program-card">
+    <div class="program-inner">
+      <div class="program-text">
+        <h3>2nde – Terminale</h3>
+        <p>
+          Les adolescents renforcent leur esprit critique et leur capacité d’innovation. Ils réalisent des projets
+          plus complexes, découvrent des technologies avancées et apprennent à défendre leurs idées
+          avec assurance.
+        </p>
+      </div>
+      <div class="program-media">
+        <img class="program-photo" src="group2.jpg" alt="2nde – Terminale">
+      </div>
+    </div>
+  </div>
+
+</div>
   </section>
 
   <!-- 4) NOTRE EQUIPE -->
