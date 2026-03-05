@@ -10,7 +10,25 @@
 
 <style>
 
-<style>
+/* POLICE MUSEO */
+@font-face{
+  font-family:"MuseoRounded";
+  src:url("fonts/MuseoSansRounded500.otf") format("opentype");
+  font-weight:500;
+}
+
+@font-face{
+  font-family:"MuseoRounded";
+  src:url("fonts/MuseoSansRounded700.otf") format("opentype");
+  font-weight:700;
+}
+
+@font-face{
+  font-family:"MuseoRounded";
+  src:url("fonts/MuseoSansRounded900.otf") format("opentype");
+  font-weight:900;
+}
+
 :root{
   --bg:#f6f1ff;
   --panel:#ffffff;
@@ -18,9 +36,9 @@
   --text:#1b1033;
   --muted:#5b4a85;
 
-  --brand:#5b21b6;   /* violet brochure */
-  --brand2:#7c3aed;  /* violet clair */
-  --accent:#f59e0b;  /* orange */
+  --brand:#5b21b6;
+  --brand2:#7c3aed;
+  --accent:#f59e0b;
 
   --line:rgba(91,33,182,.22);
   --shadow:0 16px 40px rgba(91,33,182,.14);
@@ -33,20 +51,24 @@ html{scroll-behavior:smooth}
 
 body{
   margin:0;
- font-family: 'Montserrat', sans-serif;
+  font-family:'Montserrat', sans-serif;
   color:var(--text);
   background:
     radial-gradient(900px 520px at 15% -10%, rgba(124,58,237,.18), transparent 60%),
     radial-gradient(900px 520px at 90% 10%, rgba(245,158,11,.10), transparent 60%),
     var(--bg);
 }
-  h1, h2, h3{
-  font-family:'Museo', serif;
-  letter-spacing:0.5px;
+
+h1, h2, h3{
+  font-family:"MuseoRounded", 'Montserrat', sans-serif;
 }
 
-.wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
-
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 20px;
+}
+  
 /* NAV */
 .nav{
   position:sticky; top:0; z-index:50;
