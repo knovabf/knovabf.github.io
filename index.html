@@ -897,47 +897,43 @@ a{color:inherit}
       <span class="pill">📞 +226 01 71 23 33</span>
       <a class="pill" href="mailto:knovabf@gmail.com">✉️ knovabf@gmail.com</a>
     </div>
-
     <div class="small">© <span id="year"></span> K’Nova — Vacances de Génie</div>
   </div>
 </footer>
 
 <script>
-/* year */
 document.getElementById("year").textContent = new Date().getFullYear();
 
-<script>
+const countdown = document.getElementById("countdown");
 const targetDate = new Date("June 1, 2026 00:00:00").getTime();
 
 function updateCountdown() {
-
   const now = new Date().getTime();
   const diff = targetDate - now;
 
   if (diff <= 0) {
-    document.getElementById("countdown").innerHTML = "Les inscriptions sont ouvertes !";
+    countdown.innerHTML = "Les inscriptions sont ouvertes !";
     return;
   }
 
-  const seconds = Math.floor(diff / 1000);
+  const totalSeconds = Math.floor(diff / 1000);
 
-  const months = Math.floor(seconds / (60 * 60 * 24 * 30));
-  const days = Math.floor((seconds % (60 * 60 * 24 * 30)) / (60 * 60 * 24));
-  const hours = Math.floor((seconds % (60 * 60 * 24)) / (60 * 60));
-  const minutes = Math.floor((seconds % (60 * 60)) / 60);
-  const secs = seconds % 60;
+  const months = Math.floor(totalSeconds / (60 * 60 * 24 * 30));
+  const days = Math.floor((totalSeconds % (60 * 60 * 24 * 30)) / (60 * 60 * 24));
+  const hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
+  const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+  const seconds = totalSeconds % 60;
 
-  document.getElementById("countdown").innerHTML =
+  countdown.innerHTML =
     months + " mois " +
     days + " jours " +
     hours + " h " +
     minutes + " min " +
-    secs + " s";
-
+    seconds + " s";
 }
 
-setInterval(updateCountdown, 1000);
 updateCountdown();
+setInterval(updateCountdown, 1000);
 </script>
 </body>
 </html>
