@@ -748,82 +748,87 @@ a{color:inherit}
     </div>
   </section>
 
-  <!-- 3) PROGRAMME -->
+    <!-- 3) PROGRAMME -->
   <section id="page-programme" class="page">
-  <div class="actions">
-    <button class="btn back" onclick="go('proposons')">← Retour</button>
-  </div>
+    <div class="actions">
+      <button class="btn back" onclick="go('proposons')">← Retour</button>
+    </div>
 
-  <div class="card pad" style="margin-top:14px;">
-    <h2>Programme par groupes</h2>
-    <p class="lead">Chaque tranche d’âge suit un parcours adapté : découverte, défis, création et projets.</p>
+    <div class="card pad" style="margin-top:14px;">
+      <h2>Programme par groupes</h2>
+      <p class="lead">Chaque tranche d’âge suit un parcours adapté : découverte, défis, création et projets.</p>
 
       <div class="program-grid">
 
-  <div class="program-card">
-    <div class="program-inner">
-      <div class="program-text">
-        <h3>CP – CE2</h3>
-        <p>
-          Votre enfant découvre les sciences en s’amusant. À travers des activités ludiques et concrètes,
-          nous éveillons sa curiosité, développons sa logique de base et stimulons son imagination,
-          tout en encourageant l’esprit d’équipe.
-        </p>
+        <div class="program-card">
+          <div class="program-inner">
+            <div class="program-text">
+              <h3>CP – CE2</h3>
+              <p>
+                Votre enfant découvre les sciences en s’amusant. À travers des activités ludiques et concrètes,
+                nous éveillons sa curiosité, développons sa logique de base et stimulons son imagination,
+                tout en encourageant l’esprit d’équipe.
+              </p>
+            </div>
+            <div class="program-media">
+              <img class="program-photo" src="Cp.jpg" alt="CP – CE2">
+            </div>
+          </div>
+        </div>
+
+        <div class="program-card">
+          <div class="program-inner">
+            <div class="program-text">
+              <h3>CM1 – 6e</h3>
+              <p>
+                L’enfant commence à expérimenter par lui-même. Nos ateliers l’aident à structurer sa pensée,
+                comprendre des concepts scientifiques simples et gagner en confiance grâce à des projets collaboratifs.
+              </p>
+            </div>
+            <div class="program-media">
+              <img class="program-photo" src="CM1.jpg" alt="CM1 – 6e">
+            </div>
+          </div>
+        </div>
+
+        <div class="program-card">
+          <div class="program-inner">
+            <div class="program-text">
+              <h3>5e – 3e</h3>
+              <p>
+                Les élèves développent leurs compétences techniques et leur autonomie. Ils apprennent à résoudre
+                des défis concrets, travailler en équipe et utiliser des outils comme la programmation
+                ou la modélisation.
+              </p>
+            </div>
+            <div class="program-media">
+              <img class="program-photo" src="group1.jpg" alt="5e – 3e">
+            </div>
+          </div>
+        </div>
+
+        <div class="program-card">
+          <div class="program-inner">
+            <div class="program-text">
+              <h3>2nde – Terminale</h3>
+              <p>
+                Les adolescents renforcent leur esprit critique et leur capacité d’innovation. Ils réalisent des projets
+                plus complexes, découvrent des technologies avancées et apprennent à défendre leurs idées
+                avec assurance.
+              </p>
+            </div>
+            <div class="program-media">
+              <img class="program-photo" src="group2.jpg" alt="2nde – Terminale">
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="program-media">
-        <img class="program-photo" src="Cp.jpg" alt="CP – CE2">
+
+      <div class="actions" style="margin-top:16px;">
+        <button class="btn primary" onclick="go('equipe')">Suivant →</button>
       </div>
     </div>
-  </div>
-
-  <div class="program-card">
-    <div class="program-inner">
-      <div class="program-text">
-        <h3>CM1 – 6e</h3>
-        <p>
-          L’enfant commence à expérimenter par lui-même. Nos ateliers l’aident à structurer sa pensée,
-          comprendre des concepts scientifiques simples et gagner en confiance grâce à des projets collaboratifs.
-        </p>
-      </div>
-      <div class="program-media">
-        <img class="program-photo" src="CM1.jpg" alt="CM1 – 6e">
-      </div>
-    </div>
-  </div>
-
-  <div class="program-card">
-    <div class="program-inner">
-      <div class="program-text">
-        <h3>5e – 3e</h3>
-        <p>
-          Les élèves développent leurs compétences techniques et leur autonomie. Ils apprennent à résoudre
-          des défis concrets, travailler en équipe et utiliser des outils comme la programmation
-          ou la modélisation.
-        </p>
-      </div>
-      <div class="program-media">
-        <img class="program-photo" src="group1.jpg" alt="5e – 3e">
-      </div>
-    </div>
-  </div>
-
-  <div class="program-card">
-    <div class="program-inner">
-      <div class="program-text">
-        <h3>2nde – Terminale</h3>
-        <p>
-          Les adolescents renforcent leur esprit critique et leur capacité d’innovation. Ils réalisent des projets
-          plus complexes, découvrent des technologies avancées et apprennent à défendre leurs idées
-          avec assurance.
-        </p>
-      </div>
-      <div class="program-media">
-        <img class="program-photo" src="group2.jpg" alt="2nde – Terminale">
-      </div>
-    </div>
-  </div>
-
-</div>
   </section>
 
   <!-- 4) NOTRE EQUIPE -->
@@ -903,13 +908,23 @@ a{color:inherit}
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 
-<script>
+  function go(page) {
+    document.querySelectorAll(".page").forEach(section => {
+      section.classList.remove("active");
+    });
+
+    const target = document.getElementById("page-" + page);
+    if (target) {
+      target.classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
+
+  const countdown = document.getElementById("countdown");
   const targetDate = new Date("June 1, 2026 00:00:00").getTime();
 
   function updateCountdown() {
-    const countdown = document.getElementById("countdown");
     if (!countdown) return;
 
     const now = new Date().getTime();
@@ -920,15 +935,24 @@ a{color:inherit}
       return;
     }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const totalSeconds = Math.floor(diff / 1000);
 
-    countdown.innerHTML = days + "j " + hours + "h " + minutes + "min";
+    const months = Math.floor(totalSeconds / (60 * 60 * 24 * 30));
+    const days = Math.floor((totalSeconds % (60 * 60 * 24 * 30)) / (60 * 60 * 24));
+    const hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
+    const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+    const seconds = totalSeconds % 60;
+
+    countdown.innerHTML =
+      months + " mois " +
+      days + " jours " +
+      hours + " h " +
+      minutes + " min " +
+      seconds + " s";
   }
 
   updateCountdown();
-  setInterval(updateCountdown, 60000);
+  setInterval(updateCountdown, 1000);
 </script>
 </body>
 </html>
