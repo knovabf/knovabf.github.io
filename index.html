@@ -19,6 +19,9 @@
 <meta property="og:url" content="https://knovabf.github.io">
 <meta property="og:image" content="https://knovabf.github.io/logo.png">
 
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
 <style>
 
 /* POLICE MUSEO */
@@ -580,7 +583,34 @@ footer{
 }
 .small{color:var(--muted); font-size:13px}
 a{color:inherit}
- 
+ .social-row{
+display:flex;
+gap:12px;
+margin-top:10px;
+}
+
+.social-row a{
+width:42px;
+height:42px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:rgba(91,33,182,.08);
+border:1px solid var(--line);
+
+color:var(--brand);
+font-size:18px;
+
+transition:.2s;
+}
+
+.social-row a:hover{
+background:var(--brand);
+color:white;
+transform:translateY(-2px);
+}
 </style>
 </head>
 
@@ -899,6 +929,25 @@ a{color:inherit}
       <span class="pill">📞 +226 01 71 23 33</span>
       <a class="pill" href="mailto:knovabf@gmail.com">✉️ knovabf@gmail.com</a>
     </div>
+<div class="social-row">
+
+<a href="https://www.facebook.com/knova" target="_blank">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="https://www.instagram.com/knovabf" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://linkedin.com/company/k-novabf" target="_blank">
+<i class="fab fa-linkedin-in"></i>
+</a>
+
+<a href="https://www.tiktok.com/@knovabf" target="_blank">
+<i class="fab fa-tiktok"></i>
+</a>
+
+</div>
     <div class="small">© <span id="year"></span> K’Nova — Vacances de Génie</div>
   </div>
 </footer>
