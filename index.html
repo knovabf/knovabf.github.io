@@ -906,41 +906,39 @@ a{color:inherit}
 /* year */
 document.getElementById("year").textContent = new Date().getFullYear();
 
-/* countdown (1er juin) */
-const targetDate = new Date(new Date().getFullYear(), 5, 1); // June 1
-const countdown = document.getElementById("countdown");
+<script>
+const targetDate = new Date("June 1, 2026 00:00:00").getTime();
 
-function updateCountdown(){
-  if(!countdown) return;
+function updateCountdown() {
 
-  const now = new Date();
+  const now = new Date().getTime();
   const diff = targetDate - now;
 
-  if(diff <= 0){
-    countdown.textContent = "Les inscriptions sont ouvertes 🎉";
+  if (diff <= 0) {
+    document.getElementById("countdown").innerHTML = "Les inscriptions sont ouvertes !";
     return;
   }
 
-  const days = Math.floor(diff / (1000*60*60*24));
-  const hours = Math.floor((diff / (1000*60*60)) % 24);
-  const minutes = Math.floor((diff / (1000*60)) % 60);
+  const seconds = Math.floor(diff / 1000);
 
-  countdown.textContent = days + " jours " + hours + "h " + minutes + "m";
+  const months = Math.floor(seconds / (60 * 60 * 24 * 30));
+  const days = Math.floor((seconds % (60 * 60 * 24 * 30)) / (60 * 60 * 24));
+  const hours = Math.floor((seconds % (60 * 60 * 24)) / (60 * 60));
+  const minutes = Math.floor((seconds % (60 * 60)) / 60);
+  const secs = seconds % 60;
+
+  document.getElementById("countdown").innerHTML =
+    months + " mois " +
+    days + " jours " +
+    hours + " h " +
+    minutes + " min " +
+    secs + " s";
+
 }
+
+setInterval(updateCountdown, 1000);
 updateCountdown();
-setInterval(updateCountdown, 60000);
-
-/* navigation pages */
-const pages = ["inscription","kova","proposons","programme","equipe"];
-function go(name){
-  for(const p of pages){
-    document.getElementById("page-" + p).classList.remove("active");
-  }
-  document.getElementById("page-" + name).classList.add("active");
-  window.scrollTo({top: 0, behavior: "smooth"});
-}
 </script>
-
 </body>
 </html>
 
